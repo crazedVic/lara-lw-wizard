@@ -17,8 +17,9 @@ class CreateCoveragesTable extends Migration
             $table->id();
             $table->foreignId('policy_id');
             $table->string('name');
+            $table->unsignedBigInteger('limit')->default(100000000);
             $table->boolean('deductible')->default(true);
-            $table->integer('deductible_amount')->default('500000');
+            $table->unsignedBigInteger('deductible_amount')->default('500000');
             $table->string('notes');
             $table->timestamps();
         });
