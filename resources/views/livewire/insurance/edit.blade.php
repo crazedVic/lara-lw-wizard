@@ -1,3 +1,6 @@
 <div>
-    {{-- Do your work, then step back. --}}
+    Insurance - Edit
+    <livewire:policy.edit />
+    <livewire:coverage.edit />
+    <livewire:contact.edit />
 </div>

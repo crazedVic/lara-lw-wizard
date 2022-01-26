@@ -1,3 +1,6 @@
 <div>
-    {{-- Because she competes with no one, no one can compete with her. --}}
+    Insurance View
+    <livewire:policy.view />
+    <livewire:coverage.view />
+    <livewire:contact.view />
 </div>

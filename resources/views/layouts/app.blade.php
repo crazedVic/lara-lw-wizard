@@ -12,7 +12,7 @@
     <div class="w-full mt-1 px-3 mb-2 border-b-2 border-gray-300 flex flex-row justify-between items-end">
         <img src="{{ asset('images/wizard.png') }}"  style="height:100px;padding-bottom:5px;">
     </div>
-    <div class="antialiased p-2 mx-auto max-w-2xl">
+    <div class="antialiased p-2 mx-auto max-w-xl">
         {{$slot}}
     </div>
     @livewireScripts
