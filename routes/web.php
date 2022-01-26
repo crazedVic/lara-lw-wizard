@@ -13,4 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', \App\Http\Livewire\Wizard\Base::class);
+Route::get('/insurance/add', \App\Http\Livewire\Wizard\Base::class);
+Route::get('/insurance/{id}', \App\Http\Livewire\Insurance\View::class);
+Route::get('/', \App\Http\Livewire\Index::class);
+

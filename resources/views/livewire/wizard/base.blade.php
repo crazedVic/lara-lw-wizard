@@ -9,5 +9,4 @@
         <button @click="alert('Alpine Js is working !')">Click</button>
     </div>
 
-
 </div>
