@@ -15,6 +15,11 @@ class CreateCoveragesTable extends Migration
     {
         Schema::create('coverages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('policy_id');
+            $table->string('name');
+            $table->boolean('deductible')->default(true);
+            $table->integer('deductible_amount')->default('500000');
+            $table->string('notes');
             $table->timestamps();
         });
     }

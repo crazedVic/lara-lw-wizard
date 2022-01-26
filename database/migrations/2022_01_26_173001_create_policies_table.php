@@ -15,6 +15,11 @@ class CreatePoliciesTable extends Migration
     {
         Schema::create('policies', function (Blueprint $table) {
             $table->id();
+            $table->string('brokerage');
+            $table->string('month')->default('January');
+            $table->smallInteger('day')->default(1);
+            $table->integer('annual_premium')->default(100000); //cents
+            $table->string('payment_schedule')->default('annual');
             $table->timestamps();
         });
     }
