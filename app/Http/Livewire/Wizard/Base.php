@@ -6,10 +6,10 @@ use Livewire\Component;
 
 class Base extends Component
 {
+    protected $listeners = ['previous', 'next'];
 
-    public $screen;
+    public array $screen;
     public int $currentIndex = 0;
-
 
     // componet will pass back next or repeat
     public $screens = [
@@ -18,9 +18,9 @@ class Base extends Component
             "buttons" => [
                 [
                     "label" => "Next",
-                    "eventName" => "next",
+                    "event" => "next",
                     "align" => "right",
-                    "color" => "red",
+                    "color" => "violet",
                     "target" => "wizard.base"
                 ]
             ]
@@ -51,23 +51,27 @@ class Base extends Component
         ["component" => 'coverage.edit'],
         ["component" => 'meta.outro']
 ];
+
     public function render()
     {
-        $this->screen = $this->screens[$this->currentIndex];
+       $this->screen = $this->screens[$this->currentIndex];
         return view('livewire.wizard.base');
     }
 
-    public function emitWizardEvent($screen){
-
+    public function emitWizardEvent(array $button){
+       error_log($button["target"]);
+       $this->emitTo($button["target"], $button["event"]);
     }
 
     public function next(){
-        if($this->currentIndex < sizeof($this->screens))
-            $this->currentIndex ++;
+        error_log("next wizard screen");
+//        if($this->currentIndex < sizeof($this->screens))
+//            $this->currentIndex ++;
     }
 
     public function previous(){
-        if($this->currentIndex > 0)
-            $this->currentIndex --;
+        error_log("previous wizard screen");
+//        if($this->currentIndex > 0)
+//            $this->currentIndex --;
     }
 }
