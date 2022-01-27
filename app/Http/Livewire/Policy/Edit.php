@@ -33,13 +33,13 @@ class Edit extends Component
     public function save($parameter){
         error_log("Saving policy");
         $this->validate();
-        Policy::create([
+        $policy = Policy::create([
             'brokerage' =>$this->brokerage,
             'month' => $this->month,
             'day'=> $this->day,
             'annual_premium' => $this->annual_premium,
             'payment_schedule'=> $this->payment_schedule
         ]);
-        $this->emitTo('wizard.base', 'next');
+        $this->emitTo('wizard.base', 'next', $policy->id);
     }
 }

@@ -10,6 +10,7 @@ class Base extends Component
 
     public array $screen;
     public int $currentIndex = 0;
+    public $parentId;
 
     // componet will pass back next or repeat
     public $screens = [
@@ -115,7 +116,11 @@ class Base extends Component
        return view('livewire.wizard.base');
     }
 
-    public function next(){
+    public function next($id = null){
+        if($id){
+            $this->parentId = $id;
+        }
+
         error_log("next wizard screen");
         if($this->currentIndex < sizeof($this->screens)){
             $this->currentIndex ++;
