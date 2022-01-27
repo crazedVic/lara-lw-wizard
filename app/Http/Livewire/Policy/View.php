@@ -10,6 +10,7 @@ class View extends Component
 
     public $parentId;
     public $policy;
+    public bool $embedded = false;
 
     public function render()
     {

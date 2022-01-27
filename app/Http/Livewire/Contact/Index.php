@@ -10,6 +10,7 @@ class Index extends Component
 
     public $parentId;
     public $contacts = [];
+    public bool $embedded = false;
 
     public function render()
     {

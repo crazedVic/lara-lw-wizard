@@ -10,6 +10,7 @@ class Index extends Component
 
     public $parentId;
     public $coverages =[];
+    public bool $embedded = false;
 
     public function render()
     {
