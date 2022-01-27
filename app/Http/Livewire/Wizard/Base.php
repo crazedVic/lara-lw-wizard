@@ -27,7 +27,7 @@ class Base extends Component
                     "target" => "wizard.base"
                 ],
                 [
-                    "label" => "Previous",
+                    "label" => "Very Long Previous",
                     "event" => "next",
                     "align" => "left",
                     "color" => "violet",
@@ -107,7 +107,7 @@ class Base extends Component
                     "target" => "meta.outro",
                     ],
                     [
-                        "label" => "Add Another Policy",
+                        "label" => "Start Wizard",
                         "event" => "save",
                         "parameter" => "/insurance/add", //can change form behaviour
                         "align" => "left",

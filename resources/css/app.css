@@ -33,7 +33,7 @@ button,
 button[type="submit"],
 button[type="button"]{
     @apply bg-green-900 text-white rounded-md shadow text-xs px-4 py-1.5 m-0.5 whitespace-nowrap;
-    min-width: 100px;
+    min-width: 140px;
 }
 
 input {
