@@ -101,10 +101,19 @@ class Base extends Component
                     "label" => "Finish",
                     "event" => "save",
                     "parameter" => "/", //can change form behaviour
-                    "align" => "center",
+                    "align" => "right",
                     "color" => "blue",
                     "enabled" => true,
                     "target" => "meta.outro",
+                    ],
+                    [
+                        "label" => "Add Another Policy",
+                        "event" => "save",
+                        "parameter" => "/insurance/add", //can change form behaviour
+                        "align" => "left",
+                        "color" => "green",
+                        "enabled" => true,
+                        "target" => "meta.outro",
                     ]
             ],
         ]
