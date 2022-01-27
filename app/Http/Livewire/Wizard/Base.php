@@ -21,6 +21,7 @@ class Base extends Component
                     "event" => "next",
                     "align" => "right",
                     "color" => "orange",
+                    "parameter" => null,
                     "enabled" => true,
                     "target" => "wizard.base"
                 ],
@@ -29,6 +30,7 @@ class Base extends Component
                     "event" => "next",
                     "align" => "left",
                     "color" => "violet",
+                    "parameter" => null,
                     "enabled" => false,
                     "target" => "wizard.base"
                 ]
@@ -43,17 +45,50 @@ class Base extends Component
                     "event" => "previous",
                     "align" => "left",
                     "color" => "green",
+                    "parameter" => null,
                     "enabled" => true,
                     "target" => "wizard.base"
                 ],
                 [
                     "label" => "Next",
-                    "event" => "next",
+                    "event" => "save",
                     "parameter" => false, //repeat
                     "align" => "right",
                     "color" => "green",
                     "enabled" => true,
+                    "target" => "policy.edit",
+                ],
+            ]
+        ],
+        [
+            "component" => 'contact.edit',
+            "buttons" => [
+                [
+                    "label" => "Skip",
+                    "event" => "next",
+                    "parameter" => false,
+                    "align" => "left",
+                    "color" => "orange",
+                    "enabled" => true,
                     "target" => "wizard.base",
+                ],
+                [
+                    "label" => "Add More",
+                    "event" => "save",
+                    "parameter" => true,
+                    "align" => "right",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "contact.edit",
+                ],
+                [
+                    "label" => "Continue",
+                    "event" => "save",
+                    "parameter" => false,
+                    "align" => "right",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "contact.edit",
                 ],
             ]
         ],
@@ -80,17 +115,11 @@ class Base extends Component
        return view('livewire.wizard.base');
     }
 
-    public function emitWizardEvent(array $button){
-       error_log($button["target"]);
-       $this->emitTo($button["target"], $button["event"], $button["parameter"] ?? null);
-    }
-
     public function next(){
         error_log("next wizard screen");
         if($this->currentIndex < sizeof($this->screens)){
             $this->currentIndex ++;
         }
-
     }
 
     public function previous(){
