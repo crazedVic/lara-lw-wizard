@@ -7,7 +7,7 @@ module.exports = {
     ],
     safelist: [
             {
-                pattern: /bg-(.+)-(400|500|600)/,
+                pattern: /bg-(.+)-(600|900)/,
             }
       ]
     ,

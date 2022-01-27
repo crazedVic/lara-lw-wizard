@@ -31,7 +31,7 @@ select:-webkit-autofill {
 }
 
 Button {
-    @apply bg-green-600 text-white rounded-md shadow-md text-xs px-4 py-1.5 m-0.5 whitespace-nowrap;
+    @apply bg-green-900 text-white rounded-md shadow text-xs px-4 py-1.5 m-0.5 whitespace-nowrap;
     min-width: 100px;
 }
 

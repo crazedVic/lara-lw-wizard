@@ -20,7 +20,7 @@ class Base extends Component
                     "label" => "Next",
                     "event" => "next",
                     "align" => "right",
-                    "color" => "violet",
+                    "color" => "orange",
                     "target" => "wizard.base"
                 ]
             ]

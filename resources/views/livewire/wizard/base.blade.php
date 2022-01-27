@@ -7,7 +7,7 @@
     <div class="flex flex-row justify-between w-96">
         @foreach($this->screen['buttons'] as $button)
         <button wire:click="emitWizardEvent({{json_encode($button)}})"
-                class="w-20 bg-{{$button['color']}}-500 text-left">{{$button['label']}}</button>
+                class="w-20 bg-{{$button['color']}}-600 text-left">{{$button['label']}}</button>
         @endforeach
     </div>
 </div>
