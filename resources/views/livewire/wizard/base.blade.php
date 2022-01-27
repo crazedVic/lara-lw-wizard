@@ -12,7 +12,7 @@
                             onclick="Livewire.emitTo('{{$button['target']}}', '{{$button['event']}}','{{$button['parameter'] ?? null}}' )"
                             type="button"
                             class="w-16 text-left
-                                    bg-{{$button['enabled'] ? $button['color'] . '-600' : 'gray-300'}}
+                                    !bg-{{$button['enabled'] ? $button['color'] . '-600' : 'gray-300'}}
                                      {{!$button['enabled'] ? 'text-gray-400 cursor-not-allowed' : ''}}  ">
                             {{$button['label']}}
                         </button>
@@ -26,7 +26,7 @@
                         <button
                             onclick="Livewire.emitTo('{{$button['target']}}', '{{$button['event']}}','{{$button['parameter'] ?? null}}' )"
                             type="button"
-                            class="w-16 bg-{{$button['enabled'] ? $button['color'] : 'gray'}}-600 text-center">{{$button['label']}}</button>
+                            class="w-16 !bg-{{$button['enabled'] ? $button['color'] : 'gray'}}-600 text-center">{{$button['label']}}</button>
                     @endif
                 </div>
             @endforeach
@@ -38,7 +38,7 @@
                     <button
                             onclick="Livewire.emitTo('{{$button['target']}}', '{{$button['event']}}','{{$button['parameter'] ?? null}}' )"
                             type="button"
-                            class="w-16 bg-{{$button['enabled'] ? $button['color'] : 'gray'}}-600 text-right">{{$button['label']}}</button>
+                            class="w-16 !bg-{{$button['enabled'] ? $button['color'] : 'gray'}}-600 text-right">{{$button['label']}}</button>
                 @endif
             </div>
         @endforeach
