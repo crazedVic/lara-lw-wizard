@@ -29,11 +29,16 @@ select:-webkit-autofill {
     -webkit-box-shadow: 0 0 0 1000px #1b1b1b inset !important;
     -webkit-text-fill-color: white !important;
 }
-
-Button {
-    @apply bg-green-900 text-white rounded-md shadow text-xs px-4 py-1.5 m-0.5 whitespace-nowrap;
+button,
+button[type="submit"],
+button[type="button"]{
+    @apply text-white rounded-md shadow text-xs px-4 py-1.5 m-0.5 whitespace-nowrap;
     min-width: 100px;
 }
 
+input {
+    @apply border border-gray-500 mb-2 p-1 rounded;
+
+}
 /* purgecss ignore */
 /* super handy way to keep tailwind styles from being purged */

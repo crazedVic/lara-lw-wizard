@@ -21,57 +21,83 @@ class Base extends Component
                     "event" => "next",
                     "align" => "right",
                     "color" => "orange",
+                    "enabled" => true,
+                    "target" => "wizard.base"
+                ],
+                [
+                    "label" => "Previous",
+                    "event" => "next",
+                    "align" => "left",
+                    "color" => "violet",
+                    "enabled" => false,
                     "target" => "wizard.base"
                 ]
             ]
 
         ],
         [
-            "component" => 'contact.edit',
+            "component" => 'policy.edit',
             "buttons" => [
                 [
-                    "label" => "Save & Add More",
-                    "eventName" => "save",
-                    "parameter" => true, //repeat
+                    "label" => "Previous",
+                    "event" => "previous",
+                    "align" => "left",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base"
+                ],
+                [
+                    "label" => "Next",
+                    "event" => "next",
+                    "parameter" => false, //repeat
                     "align" => "right",
                     "color" => "green",
-                    "target" => "contact.edit",
-                ],[
-                    "label" => "Previous",
-                    "eventName" => "previous",
-                    "parameter" => null, //repeat
-                    "align" => "left",
-                    "color" => "amber",
+                    "enabled" => true,
                     "target" => "wizard.base",
-                ]
+                ],
             ]
         ],
-        ["component" => 'contact.edit'],
-        ["component" => 'coverage.edit'],
-        ["component" => 'coverage.edit'],
-        ["component" => 'meta.outro']
+        [
+            "component" => 'meta.outro',
+            "buttons" =>
+                [
+                    [
+                    "label" => "Finish",
+                    "event" => "save",
+                    "parameter" => "/", //can change form behaviour
+                    "align" => "center",
+                    "color" => "blue",
+                    "enabled" => true,
+                    "target" => "meta.outro",
+                    ]
+            ],
+        ]
 ];
 
     public function render()
     {
        $this->screen = $this->screens[$this->currentIndex];
-        return view('livewire.wizard.base');
+       return view('livewire.wizard.base');
     }
 
     public function emitWizardEvent(array $button){
        error_log($button["target"]);
-       $this->emitTo($button["target"], $button["event"]);
+       $this->emitTo($button["target"], $button["event"], $button["parameter"] ?? null);
     }
 
     public function next(){
         error_log("next wizard screen");
-//        if($this->currentIndex < sizeof($this->screens))
-//            $this->currentIndex ++;
+        if($this->currentIndex < sizeof($this->screens)){
+            $this->currentIndex ++;
+        }
+
     }
 
     public function previous(){
         error_log("previous wizard screen");
-//        if($this->currentIndex > 0)
-//            $this->currentIndex --;
+        if($this->currentIndex > 0){
+            $this->currentIndex --;
+        }
+
     }
 }
