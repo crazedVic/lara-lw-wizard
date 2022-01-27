@@ -4,7 +4,7 @@
         @forelse($coverages as $coverage)
             <div class="w-full text-sm">{{$coverage->name}}</div>
         @empty
-            <div class="w-full text-sm">No Coverages Found</div>
+            <div class="w-full text-sm text-gray-400">No Coverages Found</div>
         @endforelse
     </div>
 </div>
