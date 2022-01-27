@@ -13,3 +13,12 @@ respective configuration options, as well as some general wizard options such as
   
 I try to avoid using session objects but we shall see how that goes.  
 
+### TODO
+
+- need to create the add contact -> show contact index -> loop back to add more  or continue
+- need to create add coverage form -> show coverage index -> loop back to add more or continue
+- need to create an insurance policy edit view that lets you edit all 3 in the same page
+- index view and edit view will swap spots inline on the edit insurance page
+- need to figure out if we can create a scrollable div inside the wizard
+- create a wizard summary page (if previous one possible)
+
