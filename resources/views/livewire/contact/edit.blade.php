@@ -1,14 +1,20 @@
 <div>
-    Contact - Edit {{$parentId}}
-    <form>
+    @if($embedded)<div class="text-center">New Contact</div>@else Contact Edit @endif
+    <form class="pr-2">
         <label>
-            <input type="text" class="w-full" wire:model="name" name="name" placeholder="name">
+            <div class="fieldLabel">Name</div>
+            <input type="text" class="w-full"
+                   wire:model="name" name="name" placeholder="Full Name">
         </label>
         <label>
-            <input type="text" class="w-full" wire:model="email" name="email" placeholder="email">
+            <div class="fieldLabel">Email Address</div>
+            <input type="text" class="w-full"
+                   wire:model="email" name="email" placeholder="name@domain.com">
         </label>
         <label>
-            <input type="text" class="w-full" wire:model="phone" name="phone" placeholder="phone" >
+            <div class="fieldLabel">Phone Number</div>
+            <input type="text" class="w-full"
+                   wire:model="phone" name="phone" placeholder="(XXX) XXX-XXXX" >
         </label>
         @if(!$embedded)
             <div class="text-right w-full">
@@ -17,12 +23,10 @@
             </div>
         @endif
         @if($errors->any())
-            <div class="p-1 md:px-2 text-xxs border border-gray-800">
-                <div>
-                    @foreach ($errors->all() as $error)
-                        <div class="text-xs italic text-red-500">{{$error}}</div>
-                    @endforeach
-                </div>
+            <div class="p-1 md:px-2 mx-2 mt-1 text-xxs border border-gray-800 rounded w-full">
+                @foreach ($errors->all() as $error)
+                    <div class="text-xs italic text-red-500">{{$error}}</div>
+                @endforeach
             </div>
         @endif
     </form>

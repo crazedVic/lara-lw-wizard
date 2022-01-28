@@ -1,5 +1,4 @@
-<div class="w-full text-center">
-    Insurance Policy Wizard
+<div class="w-full text-center mr-5">
     <p class="text-xs text-left mt-2 indent-1">
         Understanding, paralysis, and peace. The species is more astronaut now than lieutenant commander. spheroid and patiently fantastic.
         This death has only been attacked by a modern lieutenant commander. Reproduce bravely like a quirky green people.

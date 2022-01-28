@@ -9,8 +9,8 @@ class Base extends Component
     protected $listeners = ['previous', 'next'];
 
     public array $screen;
-    public int $currentIndex = 0;
-    public $parentId;
+    public int $currentIndex = 4;
+    public $parentId = 20;
 
     // componet will pass back next or repeat
     public $screens = [
@@ -50,7 +50,7 @@ class Base extends Component
                     "target" => "wizard.base"
                 ],
                 [
-                    "label" => "Next",
+                    "label" => "Contacts",
                     "event" => "save",
                     "parameter" => false, //repeat
                     "align" => "right",
@@ -96,7 +96,7 @@ class Base extends Component
                     "target" => "wizard.base",
                 ],
                 [
-                    "label" => "Next ",
+                    "label" => "Coverages",
                     "event" => "next",
                     "parameter" => false,
                     "align" => "right",
@@ -142,7 +142,30 @@ class Base extends Component
                     "target" => "wizard.base",
                 ],
                 [
-                    "label" => "Next ",
+                    "label" => "Summary",
+                    "event" => "next",
+                    "parameter" => false,
+                    "align" => "right",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ]
+            ]
+        ],
+        [
+            "component" => 'insurance.view',
+            "buttons" => [
+                [
+                    "label" => "Previous",
+                    "event" => "previous",
+                    "parameter" => false,
+                    "align" => "left",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ],
+                [
+                    "label" => "Confirm",
                     "event" => "next",
                     "parameter" => false,
                     "align" => "right",
@@ -166,7 +189,7 @@ class Base extends Component
                     "target" => "meta.outro",
                     ],
                     [
-                        "label" => "Start Wizard",
+                        "label" => "Add Another",
                         "event" => "save",
                         "parameter" => "/insurance/add", //can change form behaviour
                         "align" => "left",

@@ -15,9 +15,9 @@ class Edit extends Component
 
     public $name;
     public $limit;
-    public $deductible_amount = "50000";
-    public $deductible = true;
-    public $notes = "some notes";
+    public $deductible_amount;
+    public $deductible;
+    public $notes;
 
     protected $rules = [
         'name' => 'required|string|min:4',

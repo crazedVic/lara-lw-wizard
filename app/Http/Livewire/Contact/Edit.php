@@ -14,8 +14,8 @@ class Edit extends Component
 
     public $parentId;
     public $name;
-    public $phone = "(555) 545-8989";
-    public $email = "broker@youremail.com";
+    public $phone;
+    public $email;
 
     protected $rules = [
         'name' => 'required|string|min:4',

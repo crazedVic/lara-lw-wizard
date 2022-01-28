@@ -12,16 +12,16 @@ class Edit extends Component
     protected $listeners = ["save"];
 
     public $brokerage;
-    public $month = "12";
-    public $day = "01";
-    public $annual_premium = "100000";
-    public $payment_schedule = "annual";
+    public $month;
+    public $day;
+    public $annual_premium;
+    public $payment_schedule;
 
     public $rules = [
         'brokerage' => 'required|string|min:6',
-        'month'=> 'string',
-        'day'=> 'string',
-        'annual_premium' => 'required',
+        'month'=> 'numeric|required|max:12',
+        'day'=> 'numeric|required|max:31',
+        'annual_premium' => 'required|numeric',
         'payment_schedule'=> 'required|string'
     ];
 

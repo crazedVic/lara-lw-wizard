@@ -12,7 +12,13 @@ module.exports = {
       ]
     ,
   theme: {
-    extend: {},
+    extend: {
+        fontSize: {
+            xxs: ['0.5rem', {
+                lineHeight: '0.7rem',
+            }],
+        },
+    },
   },
   plugins: [],
 }
