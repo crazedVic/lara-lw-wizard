@@ -21,7 +21,7 @@ class Edit extends Component
 
     protected $rules = [
         'name' => 'required|string|min:4',
-        'limit' => 'required',
+        'limit' => 'required|numeric',
         'deductible' => 'boolean',
         'deductible_amount' => 'required',
         'notes' => 'string|min:5',

@@ -27,7 +27,7 @@ class Base extends Component
                     "target" => "wizard.base"
                 ],
                 [
-                    "label" => "Very Long Previous",
+                    "label" => "Previous",
                     "event" => "next",
                     "align" => "left",
                     "color" => "violet",
@@ -36,7 +36,6 @@ class Base extends Component
                     "target" => "wizard.base"
                 ]
             ]
-
         ],
         [
             "component" => 'policy.edit',
@@ -74,15 +73,6 @@ class Base extends Component
                     "target" => "wizard.base",
                 ],
                 [
-                    "label" => "Add More",
-                    "event" => "save",
-                    "parameter" => true,
-                    "align" => "right",
-                    "color" => "green",
-                    "enabled" => true,
-                    "target" => "contact.edit",
-                ],
-                [
                     "label" => "Continue",
                     "event" => "save",
                     "parameter" => false,
@@ -91,6 +81,75 @@ class Base extends Component
                     "enabled" => true,
                     "target" => "contact.edit",
                 ],
+            ]
+        ],
+        [
+            "component" => 'contact.index',
+            "buttons" => [
+                [
+                    "label" => "Add More",
+                    "event" => "previous",
+                    "parameter" => false,
+                    "align" => "left",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ],
+                [
+                    "label" => "Next ",
+                    "event" => "next",
+                    "parameter" => false,
+                    "align" => "right",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ]
+            ]
+        ],
+        [
+            "component" => 'coverage.edit',
+            "buttons" => [
+                [
+                    "label" => "Skip",
+                    "event" => "next",
+                    "parameter" => false,
+                    "align" => "left",
+                    "color" => "orange",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ],
+                [
+                    "label" => "Continue",
+                    "event" => "save",
+                    "parameter" => false,
+                    "align" => "right",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "coverage.edit",
+                ],
+            ]
+        ],
+        [
+            "component" => 'coverage.index',
+            "buttons" => [
+                [
+                    "label" => "Add More",
+                    "event" => "previous",
+                    "parameter" => false,
+                    "align" => "left",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ],
+                [
+                    "label" => "Next ",
+                    "event" => "next",
+                    "parameter" => false,
+                    "align" => "right",
+                    "color" => "green",
+                    "enabled" => true,
+                    "target" => "wizard.base",
+                ]
             ]
         ],
         [

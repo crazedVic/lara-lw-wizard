@@ -35,7 +35,7 @@ button[type="button"]{
     @apply bg-green-900 text-white rounded-md shadow text-xs px-4 py-1.5 m-0.5 whitespace-nowrap;
     min-width: 140px;
 }
-
+textarea,
 input {
     @apply border border-gray-500 mb-2 p-1 rounded;
 
