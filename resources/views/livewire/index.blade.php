@@ -1,5 +1,5 @@
 <div class="w-full">
-    <button onclick="window.location='{{ url("insurance/add") }}'">New Policy Wizard</button>
+    <button class="bg-green-800" onclick="window.location='{{ url("insurance/add") }}'">New Policy Wizard</button>
     <div class="w-full pl-5 pt-3">
         @forelse($policies as $policy)
             <div class="cursor-pointer mb-0.5 hover:bg-green-100 hover:pl-2">

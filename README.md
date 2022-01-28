@@ -13,12 +13,33 @@ respective configuration options, as well as some general wizard options such as
   
 I try to avoid using session objects but we shall see how that goes.  
 
-### TODO
+### How To
+Build your components using livewire, then configure them in Wizard.Base component `$screens` array:
 
-- need to create the add contact -> show contact index -> loop back to add more  or continue
-- need to create add coverage form -> show coverage index -> loop back to add more or continue
-- need to create an insurance policy edit view that lets you edit all 3 in the same page
-- index view and edit view will swap spots inline on the edit insurance page
-- need to figure out if we can create a scrollable div inside the wizard
-- create a wizard summary page (if previous one possible)
-
+```
+[
+    "component" => 'meta.intro',
+    "buttons" => [
+        [
+            "label" => "Next",
+            "event" => "next",
+            "align" => "right",
+            "color" => "green",
+            "parameter" => null,
+            "enabled" => true,
+            "target" => "wizard.base"
+        ],
+        [
+            "label" => "Exit",
+            "event" => "redirection",
+            "parameter" => "/", //can change form behaviour
+            "align" => "left",
+            "color" => "gray",
+            "enabled" => true,
+            "target" => "wizard.base",
+        ]
+    ]
+],
+```
+- I used a bool $embedded to alter views of components based on where they are loaded, so I can make more compact styles for inside the wizard, hide buttons.
+- I make heavy use of emitTo, and I found that I had to emit from blade file not from class functions as it was causing my component to be reloaded.
