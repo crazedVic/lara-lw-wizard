@@ -37,7 +37,7 @@
                     </div>
         @endif
         @if($errors->any())
-            <div class="p-1 md:px-2 mx-2 mt-1 text-xxs border border-gray-800 rounded w-full">
+            <div class="errorSummary">
                 @foreach ($errors->all() as $error)
                     <div class="text-xs italic text-red-500">{{$error}}</div>
                 @endforeach

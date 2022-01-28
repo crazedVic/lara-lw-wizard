@@ -9,8 +9,8 @@ class Base extends Component
     protected $listeners = ['previous', 'next'];
 
     public array $screen;
-    public int $currentIndex = 4;
-    public $parentId = 20;
+    public int $currentIndex = 0;
+    public $parentId;
 
     // componet will pass back next or repeat
     public $screens = [
@@ -189,7 +189,7 @@ class Base extends Component
                     "target" => "meta.outro",
                     ],
                     [
-                        "label" => "Add Another",
+                        "label" => "Add More",
                         "event" => "save",
                         "parameter" => "/insurance/add", //can change form behaviour
                         "align" => "left",

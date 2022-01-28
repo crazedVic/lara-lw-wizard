@@ -1,12 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');
-
+/*@import url('https://fonts.googleapis.com/css2?family=ZCOOL+QingKe+HuangYou&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 html {
-    font-family:'ZCOOL QingKe HuangYou', sans-serif;
-    font-size: 24pt;
+    font-family:'Open Sans', sans-serif;
+    font-size: 20pt;
 }
 
 input[type="search"]::-webkit-search-cancel-button {
@@ -45,6 +45,10 @@ input[type="text"] {
 
 .fieldLabel{
     @apply text-gray-600 text-xxs ml-1 py-0 mt-1.5 mb-1;
+}
+
+.errorSummary{
+    @apply p-1 md:px-2 mx-2 mt-1 text-xxs border border-gray-800 rounded w-full;
 }
 /* purgecss ignore */
 /* super handy way to keep tailwind styles from being purged */
