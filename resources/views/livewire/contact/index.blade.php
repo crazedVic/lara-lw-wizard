@@ -3,7 +3,7 @@
     @if(!$embedded)
         <div class="ml-4 border-l-2 border-green-500 p-2 text-xs">
     @else
-        <div class="text-xxs border-t border-green-500 w-3/4">
+        <div class="text-xxs border-t border-green-500 w-3/4 mb-2">
     @endif
 
         @forelse($contacts as $contact)

@@ -32,10 +32,9 @@ select:-webkit-autofill {
 button,
 button[type="submit"],
 button[type="button"]{
-    @apply bg-green-900 text-white rounded-md shadow text-xs px-2 py-1.5 m-0.5 whitespace-nowrap;
+    @apply text-white rounded-md shadow text-xs px-2 py-1.5 m-0.5 whitespace-nowrap;
     min-width: 140px;
 }
-
 
 textarea,
 input[type="text"] {
@@ -44,11 +43,12 @@ input[type="text"] {
 }
 
 .fieldLabel{
-    @apply text-gray-600 text-xxs ml-1 py-0 mt-1.5 mb-1;
+    @apply text-gray-800 text-xxs ml-1 py-0 mt-1.5 mb-1;
 }
 
 .errorSummary{
     @apply p-1 md:px-2 mx-2 mt-1 text-xxs border border-gray-800 rounded w-full;
 }
+
 /* purgecss ignore */
 /* super handy way to keep tailwind styles from being purged */

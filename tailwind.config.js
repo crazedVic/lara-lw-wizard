@@ -14,8 +14,8 @@ module.exports = {
   theme: {
     extend: {
         fontSize: {
-            xxs: ['0.5rem', {
-                lineHeight: '0.7rem',
+            xxs: ['0.7rem', {
+                lineHeight: '0.8rem',
             }],
         },
     },

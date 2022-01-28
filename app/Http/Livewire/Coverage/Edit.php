@@ -22,7 +22,7 @@ class Edit extends Component
     protected $rules = [
         'name' => 'required|string|min:4',
         'limit' => 'required|numeric',
-        'deductible' => 'boolean',
+        'deductible' => 'boolean|nullable',
         'deductible_amount' => 'required',
         'notes' => 'string|min:5',
     ];
@@ -42,7 +42,7 @@ class Edit extends Component
             'name' => $this->name,
             'limit' => $this->limit,
             'deductible_amount' => $this->deductible_amount,
-            'deductible' => $this->deductible,
+            'deductible' => $this->deductible ?? false,
             'notes' => $this->notes
         ]);
 

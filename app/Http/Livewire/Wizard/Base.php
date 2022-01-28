@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Base extends Component
 {
-    protected $listeners = ['previous', 'next'];
+    protected $listeners = ['previous', 'next', 'redirection'];
 
     public array $screen;
     public int $currentIndex = 0;
@@ -21,19 +21,19 @@ class Base extends Component
                     "label" => "Next",
                     "event" => "next",
                     "align" => "right",
-                    "color" => "orange",
+                    "color" => "green",
                     "parameter" => null,
                     "enabled" => true,
                     "target" => "wizard.base"
                 ],
                 [
-                    "label" => "Previous",
-                    "event" => "next",
+                    "label" => "Exit",
+                    "event" => "redirection",
+                    "parameter" => "/", //can change form behaviour
                     "align" => "left",
-                    "color" => "violet",
-                    "parameter" => null,
-                    "enabled" => false,
-                    "target" => "wizard.base"
+                    "color" => "gray",
+                    "enabled" => true,
+                    "target" => "wizard.base",
                 ]
             ]
         ],
@@ -165,11 +165,11 @@ class Base extends Component
                     "target" => "wizard.base",
                 ],
                 [
-                    "label" => "Confirm",
+                    "label" => "Complete",
                     "event" => "next",
                     "parameter" => false,
                     "align" => "right",
-                    "color" => "green",
+                    "color" => "blue",
                     "enabled" => true,
                     "target" => "wizard.base",
                 ]
@@ -180,22 +180,22 @@ class Base extends Component
             "buttons" =>
                 [
                     [
-                    "label" => "Finish",
-                    "event" => "save",
-                    "parameter" => "/", //can change form behaviour
-                    "align" => "right",
-                    "color" => "blue",
-                    "enabled" => true,
-                    "target" => "meta.outro",
+                        "label" => "Finish",
+                        "event" => "redirection",
+                        "parameter" => "/", //can change form behaviour
+                        "align" => "right",
+                        "color" => "blue",
+                        "enabled" => true,
+                        "target" => "wizard.base",
                     ],
                     [
                         "label" => "Add More",
-                        "event" => "save",
+                        "event" => "redirection",
                         "parameter" => "/insurance/add", //can change form behaviour
                         "align" => "left",
                         "color" => "green",
                         "enabled" => true,
-                        "target" => "meta.outro",
+                        "target" => "wizard.base",
                     ]
             ],
         ]
@@ -223,6 +223,10 @@ class Base extends Component
         if($this->currentIndex > 0){
             $this->currentIndex --;
         }
+    }
 
+    public function redirection($parameter = null){
+        if($parameter)
+            return redirect($parameter);
     }
 }
