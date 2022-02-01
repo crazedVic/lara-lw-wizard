@@ -11,7 +11,7 @@ class Edit extends Component
 
     public bool $embedded =  false;
 
-    public $parentId;
+    public $params;
 
     public $name;
     public $limit;
@@ -34,11 +34,11 @@ class Edit extends Component
 
     public function save($repeat = false){
         // may no longer need repeat, since we are changing default flow.
-        $parentId = $this->parentId;
+        $params = $this->params;
         $this->validate();
 
         $coverage = Coverage::create([
-            'policy_id' => $this->parentId,
+            'policy_id' => $this->params['parentId'],
             'name' => $this->name,
             'limit' => $this->limit,
             'deductible_amount' => $this->deductible_amount,
@@ -52,7 +52,7 @@ class Edit extends Component
         else {
             $this->reset();
             $this->embedded = true;
-            $this->parentId = $parentId;
+            $this->params = $params;
         }
     }
 }

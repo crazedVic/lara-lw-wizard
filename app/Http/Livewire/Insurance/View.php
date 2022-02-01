@@ -7,17 +7,16 @@ use Livewire\Component;
 
 class View extends Component
 {
-
     public Policy $policy;
 
-    public $parentId;
+    public $params;
 
     public bool $embedded = false;
 
     public function render()
     {
-        if($this->embedded && $this->parentId){
-            $this->policy = Policy::find($this->parentId);
+        if($this->embedded && $this->params){
+            $this->policy = Policy::find($this->params['parentId']);
         }
         return view('livewire.insurance.view');
     }

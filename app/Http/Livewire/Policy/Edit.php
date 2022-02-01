@@ -40,6 +40,6 @@ class Edit extends Component
             'annual_premium' => $this->annual_premium,
             'payment_schedule'=> $this->payment_schedule
         ]);
-        $this->emitTo('wizard.base', 'next', $policy->id);
+        $this->emitTo('wizard.base', 'next', ['parentId' => $policy->id]);
     }
 }
