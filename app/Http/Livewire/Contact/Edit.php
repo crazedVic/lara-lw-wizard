@@ -12,7 +12,7 @@ class Edit extends Component
 
     public bool $embedded =  false;
 
-    public $parentId;
+    public $params;
     public $name;
     public $phone;
     public $email;
@@ -29,10 +29,11 @@ class Edit extends Component
     }
 
     public function save($repeat = false){
-        $parentId = $this->parentId;
+        $params = $this->params;
+
         $this->validate();
         $contact = Contact::create([
-            'policy_id' => $this->parentId,
+            'policy_id' => $params['parentId'],
             'name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email
@@ -44,7 +45,7 @@ class Edit extends Component
         else {
             $this->reset();
             $this->embedded = true;
-            $this->parentId = $parentId;
+            $this->params = $params;
         }
     }
 }

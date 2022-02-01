@@ -3,7 +3,7 @@
     <div class="h-80 w-96 border border-gray-300 shadow-sm shadow-zinc-500 p-2 overflow-y-auto overflow-x-clip">
         <livewire:is :component="$screens[$currentIndex]['component']"
                      :embedded="true"
-                     :parentId="$parentId"
+                     :params="$params"
                      wire:key/>
     </div>
 
