@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Base extends Component
 {
-    protected $listeners = ['previous', 'next', 'redirection'];
+    protected $listeners = ['previous', 'next', 'redirection', 'redirectToCreated'];
 
     public array $screen;
     public int $currentIndex = 0;
@@ -228,5 +228,10 @@ class Base extends Component
     public function redirection($parameter = null){
         if($parameter)
             return redirect($parameter);
+    }
+
+    public function redirectToCreated($base_url)
+    {
+        redirect($base_url . '/' . $this->params['parent_id']);
     }
 }
