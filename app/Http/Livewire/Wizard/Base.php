@@ -230,8 +230,11 @@ class Base extends Component
             return redirect($parameter);
     }
 
+    //append base url to parent id
+    //base_url must end with a slash (/) 
+    //or querystring declaration(?x=)
     public function redirectToCreated($base_url)
     {
-        redirect($base_url . '/' . $this->params['parent_id']);
+        redirect($base_url . $this->params['parent_id']);
     }
 }

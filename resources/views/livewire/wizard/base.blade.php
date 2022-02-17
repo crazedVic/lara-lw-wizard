@@ -1,10 +1,17 @@
 <div class="mx-auto w-full flex flex-col justify-start items-center space-y-2">
     <div>New Insurance Policy Wizard</div>
-    <div class="h-80 w-96 border border-gray-300 shadow-sm shadow-zinc-500 p-2 overflow-y-auto overflow-x-clip">
+    <div class="w-96 border border-gray-300 shadow-sm shadow-zinc-500 p-2 overflow-y-auto overflow-x-clip" style="height:70vh" id="wizardBox">
         <livewire:is :component="$screens[$currentIndex]['component']"
                      :embedded="true"
                      :params="$params"
                      wire:key/>
+        <script wire:ignore>
+            document.addEventListener("DOMContentLoaded", () => {
+                Livewire.hook('component.initialized', (component) => {
+                    document.getElementById('wizardBox').scrollTo(0,0);
+                })
+            });
+        </script>
     </div>
 
     <div class="flex flex-row justify-between w-96">
