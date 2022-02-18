@@ -7,7 +7,6 @@ use Livewire\Component;
 
 class Edit extends Component
 {
-
     protected $listeners = ['save'];
 
     public bool $embedded =  false;
@@ -39,13 +38,14 @@ class Edit extends Component
             'email' => $this->email
         ]);
 
-        if (!$repeat){
-            $this->emitTo('wizard.base', 'next');
-        }
-        else {
-            $this->reset();
-            $this->embedded = true;
-            $this->params = $params;
-        }
+        $this->emitTo('contact.combined', 'continue');
+        // if (!$repeat){
+        //     $this->emitTo('wizard.base', 'next');
+        // }
+        // else {
+        //     $this->reset();
+        //     $this->embedded = true;
+        //     $this->params = $params;
+        // }
     }
 }

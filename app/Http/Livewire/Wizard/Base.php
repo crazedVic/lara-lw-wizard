@@ -6,11 +6,12 @@ use Livewire\Component;
 
 class Base extends Component
 {
-    protected $listeners = ['previous', 'next', 'redirection', 'redirectToCreated'];
+    protected $listeners = ['previous', 'next', 'redirection', 'redirectToCreated', 'changeButtons'];
 
     public array $screen;
     public int $currentIndex = 0;
     public $params;
+
 
     // componet will pass back next or repeat
     public $screens = [
@@ -61,16 +62,16 @@ class Base extends Component
             ]
         ],
         [
-            "component" => 'contact.edit',
+            "component" => 'contact.combined',
             "buttons" => [
                 [
                     "label" => "Skip",
-                    "event" => "next",
+                    "event" => "skip",
                     "parameter" => false,
                     "align" => "left",
                     "color" => "orange",
                     "enabled" => true,
-                    "target" => "wizard.base",
+                    "target" => "contact.combined",
                 ],
                 [
                     "label" => "Continue",
@@ -79,30 +80,7 @@ class Base extends Component
                     "align" => "right",
                     "color" => "green",
                     "enabled" => true,
-                    "target" => "contact.edit",
-                ],
-            ]
-        ],
-        [
-            "component" => 'contact.index',
-            "buttons" => [
-                [
-                    "label" => "Add More",
-                    "event" => "previous",
-                    "parameter" => false,
-                    "align" => "left",
-                    "color" => "green",
-                    "enabled" => true,
-                    "target" => "wizard.base",
-                ],
-                [
-                    "label" => "Coverages",
-                    "event" => "next",
-                    "parameter" => false,
-                    "align" => "right",
-                    "color" => "green",
-                    "enabled" => true,
-                    "target" => "wizard.base",
+                    "target" => "contact.combined",
                 ]
             ]
         ],
@@ -199,12 +177,13 @@ class Base extends Component
                     ]
             ],
         ]
-];
+    ];
 
     public function render()
     {
-       $this->screen = $this->screens[$this->currentIndex];
-       return view('livewire.wizard.base');
+        $this->emitTo('wizard.buttons', 'setButtons', $this->screens[$this->currentIndex]['buttons']);
+        $this->screen = $this->screens[$this->currentIndex];
+        return view('livewire.wizard.base');
     }
 
     public function next($params = null){
@@ -236,5 +215,11 @@ class Base extends Component
     public function redirectToCreated($base_url)
     {
         redirect($base_url . $this->params['parent_id']);
+    }
+
+    //overwrite the buttons
+    public function changeButtons($index, $buttons)
+    {
+        $this->screens[$index]['buttons'] = $buttons;
     }
 }
