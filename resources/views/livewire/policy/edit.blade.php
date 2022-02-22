@@ -17,12 +17,12 @@
                    wire:model="month" placeholder="12">
         </label>
         <label>
-            <div class="fieldLabel">Annual Premium</div>
+            <div class="fieldLabel">Annual Premium ($)</div>
             <input type="text"  name="annual_premium"
                    wire:model="annual_premium" placeholder="Annual Premium ($)" >
         </label>
         <label>
-            <div class="fieldLabel">Payment Schedule ($)</div>
+            <div class="fieldLabel">Payment Schedule</div>
             <input type="text" class="w-full" name="schedule"
                    wire:model="payment_schedule" placeholder="Annual or Monthly">
         </label>

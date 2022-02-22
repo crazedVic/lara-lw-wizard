@@ -14,6 +14,7 @@ class Edit extends Component
     public $params;
 
     public $name;
+    public $index;
     public $limit;
     public $deductible_amount;
     public $deductible;
@@ -32,7 +33,7 @@ class Edit extends Component
         return view('livewire.coverage.edit');
     }
 
-    public function save($repeat = false){
+    public function save(){
         // may no longer need repeat, since we are changing default flow.
         $params = $this->params;
         $this->validate();
@@ -46,8 +47,9 @@ class Edit extends Component
             'notes' => $this->notes
         ]);
 
-        if (!$repeat){
-            $this->emitTo('wizard.base', 'next', ['coverages' => $coverage]);
+        if($this->embedded){
+            $this->params[$this->index][] = $coverage;
+            $this->emitTo('wizard.base', 'next',$this->params[$this->index]);
         }
         else {
             $this->reset();

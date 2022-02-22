@@ -6,7 +6,7 @@ use Livewire\Component;
 
 class Base extends Component
 {
-    protected $listeners = ['previous', 'next', 'redirection', 'redirectToCreated', 'changeButtons'];
+    protected $listeners = ['previous', 'next', 'redirection', 'redirectToCreated', 'changeButtons','saveAll'];
 
     public array $screen;
     public int $currentIndex = 0;
@@ -40,7 +40,7 @@ class Base extends Component
         ],
         [
             "component" => 'policy.edit',
-            "model" => "App//Models//Policy",
+            "model" => "App\\Models\\Policy",
             "buttons" => [
                 [
                     "label" => "Previous",
@@ -64,7 +64,7 @@ class Base extends Component
         ],
         [
             "component" => 'contact.combined',
-            "model" => "App//Models//Contact",
+            "model" => "App\\Models\\Contact",
             "buttons" => [
                 [
                     "label" => "Skip",
@@ -88,7 +88,7 @@ class Base extends Component
         ],
         [
             "component" => 'coverage.edit',
-            "model" => "App//Models//Coverage",
+            "model" =>"App\\Models\\Coverage",
             "buttons" => [
                 [
                     "label" => "Skip",
@@ -149,7 +149,7 @@ class Base extends Component
                 ],
                 [
                     "label" => "Complete",
-                    "event" => "next",
+                    "event" => "saveAll",
                     "parameter" => false,
                     "align" => "right",
                     "color" => "blue",
@@ -160,6 +160,7 @@ class Base extends Component
         ],
         [
             "component" => 'meta.outro',
+            "model" => null,
             "buttons" =>
                 [
                     [
@@ -184,6 +185,10 @@ class Base extends Component
         ]
     ];
 
+    public function mount (){
+        $this->params = array_fill(0,sizeof($this->screens), []);
+    }
+
     public function render()
     {
         $this->emitTo('wizard.buttons', 'setButtons', $this->screens[$this->currentIndex]['buttons']);
@@ -202,10 +207,51 @@ class Base extends Component
         }
     }
 
-    public function previous($params= null){
-        if($params){
-            $this->params[$this->currentIndex] = $params;
+    public function saveAll(){
+        // this would be where we actually save all the in memory data to db.
+        foreach($this->screens as $key => $screen ){
+            if($screen["model"]){
+                error_log($key);
+                $data = $this->params[$key];
+
+                foreach($data as $entry){
+                    if(is_array($entry)){
+                        error_log("list");
+                        error_log($entry["name"]);
+                        $model = new $screen["model"]($entry);
+                        if(!isset($model->id)){
+                            $model->save();
+                        }
+
+                    }
+                    else{
+                        error_log("individual");
+                        $model = new $screen["model"]($data);
+                        if(!isset($model->id)){
+                            $model->save();
+                        }
+                        break;
+                    }
+//                    if(is_array($entry)){
+//                        // list of records
+//                        foreach($entry as $record){
+//                            //save record
+//                            error_log("save index entry");
+//                        }
+//                    }
+//                    else{
+//                        //save record
+//                        error_log("save single entry");
+//                    }
+                }
+            }
         }
+//        if($this->currentIndex < sizeof($this->screens)){
+//            $this->currentIndex ++;
+//        }
+    }
+
+    public function previous(){
 
         error_log("previous wizard screen");
         if($this->currentIndex > 0){
