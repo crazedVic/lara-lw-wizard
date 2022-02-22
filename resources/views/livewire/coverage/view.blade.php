@@ -1,3 +1,0 @@
-<div>
-    Coverage - View
-</div>
