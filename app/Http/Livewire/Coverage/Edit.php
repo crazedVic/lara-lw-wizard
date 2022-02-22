@@ -38,7 +38,7 @@ class Edit extends Component
         $this->validate();
 
         $coverage = Coverage::create([
-            'policy_id' => $this->params['parentId'],
+            'policy_id' => $this->params[1]["id"],
             'name' => $this->name,
             'limit' => $this->limit,
             'deductible_amount' => $this->deductible_amount,
@@ -47,7 +47,7 @@ class Edit extends Component
         ]);
 
         if (!$repeat){
-            $this->emitTo('wizard.base', 'next');
+            $this->emitTo('wizard.base', 'next', ['coverages' => $coverage]);
         }
         else {
             $this->reset();

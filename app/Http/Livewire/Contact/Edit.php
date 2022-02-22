@@ -32,7 +32,7 @@ class Edit extends Component
 
         $this->validate();
         $contact = Contact::create([
-            'policy_id' => $params['parentId'],
+            'policy_id' => $params[1]["id"],
             'name' => $this->name,
             'phone' => $this->phone,
             'email' => $this->email

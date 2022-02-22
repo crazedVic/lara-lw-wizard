@@ -14,7 +14,7 @@ class Index extends Component
     public function render()
     {
         if($this->params)
-            $this->contacts = Contact::where('policy_id', $this->params['parentId'])->get();
+            $this->contacts = Contact::where('policy_id', $this->params[1]["id"])->get();
         return view('livewire.contact.index');
     }
 }

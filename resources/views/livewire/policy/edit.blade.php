@@ -28,8 +28,8 @@
         </label>
         @if(!$embedded)
             <div class="text-right w-full">
-                <button type="button">Save</button>
-                <button type="button" class="!bg-gray-400">Cancel</button>
+                <butto wire:click="save()" type="button">Save</button>
+                <button wire:click="cancel()" type="button" class="!bg-gray-400">Cancel</button>
             </div>
         @endif
         @if($errors->any())

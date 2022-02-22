@@ -14,7 +14,7 @@ class Index extends Component
     public function render()
     {
         if($this->params)
-            $this->coverages = Coverage::where('policy_id',$this->params['parentId'])->get();
+            $this->coverages = Coverage::where('policy_id',$this->params[1]["id"])->get();
         return view('livewire.coverage.index');
     }
 }

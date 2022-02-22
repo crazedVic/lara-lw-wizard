@@ -30,16 +30,27 @@ class Edit extends Component
         return view('livewire.policy.edit');
     }
 
-    public function save($parameter){
+    public function save($parameter = null){
         error_log("Saving policy");
         $this->validate();
-        $policy = Policy::create([
+
+        $policy =new Policy([
             'brokerage' =>$this->brokerage,
             'month' => $this->month,
             'day'=> $this->day,
             'annual_premium' => $this->annual_premium,
             'payment_schedule'=> $this->payment_schedule
         ]);
-        $this->emitTo('wizard.base', 'next', ['parentId' => $policy->id]);
+
+        if(!$this->embedded){
+            $policy->save();
+        }
+        else{
+            //remove next line once colossal data mode works
+            $policy->save();
+
+            $this->emitTo('wizard.base', 'next', $policy);
+        }
+
     }
 }

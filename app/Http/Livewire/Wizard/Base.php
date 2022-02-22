@@ -12,7 +12,6 @@ class Base extends Component
     public int $currentIndex = 0;
     public $params;
 
-
     // componet will pass back next or repeat
     public $screens = [
         [
@@ -188,7 +187,7 @@ class Base extends Component
 
     public function next($params = null){
         if($params){
-            $this->params = $params;
+            $this->params[$this->currentIndex] = $params;
         }
 
         error_log("next wizard screen");
@@ -197,7 +196,11 @@ class Base extends Component
         }
     }
 
-    public function previous(){
+    public function previous($params= null){
+        if($params){
+            $this->params[$this->currentIndex] = $params;
+        }
+
         error_log("previous wizard screen");
         if($this->currentIndex > 0){
             $this->currentIndex --;
@@ -210,7 +213,7 @@ class Base extends Component
     }
 
     //append base url to parent id
-    //base_url must end with a slash (/) 
+    //base_url must end with a slash (/)
     //or querystring declaration(?x=)
     public function redirectToCreated($base_url)
     {

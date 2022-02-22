@@ -14,7 +14,7 @@ class View extends Component
     public function render()
     {
         if($this->params)
-            $this->policy = Policy::find($this->params['parentId']);
+            $this->policy = Policy::find($this->params[1]["id"]);
         return view('livewire.policy.view');
     }
 }
