@@ -7,9 +7,9 @@
     @endif
 
         @forelse($contacts as $contact)
-            <div class="w-full pl-2 text-sm">{{$contact->name}}</div>
-            <div class="w-full pl-4 text-gray-500">{{$contact->email}}</div>
-            <div class="w-full pl-4 text-gray-500">{{$contact->phone}}</div>
+            <div class="w-full pl-2 text-sm">{{$contact['name']}}</div>
+            <div class="w-full pl-4 text-gray-500">{{$contact['email']}}</div>
+            <div class="w-full pl-4 text-gray-500">{{$contact['phone']}}</div>
         @empty
             <div class="w-full text-sm">No Contacts Found</div>
         @endforelse

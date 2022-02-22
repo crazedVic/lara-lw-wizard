@@ -38,7 +38,7 @@ class Edit extends Component
             'email' => $this->email
         ]);
 
-        $this->emitTo('contact.combined', 'continue');
+        $this->emitTo('contact.combined', 'continue', $contact);
         // if (!$repeat){
         //     $this->emitTo('wizard.base', 'next');
         // }

@@ -16,6 +16,7 @@ class Base extends Component
     public $screens = [
         [
             "component" => 'meta.intro',
+            "model" => null,
             "buttons" => [
                 [
                     "label" => "Next",
@@ -39,6 +40,7 @@ class Base extends Component
         ],
         [
             "component" => 'policy.edit',
+            "model" => "App//Models//Policy",
             "buttons" => [
                 [
                     "label" => "Previous",
@@ -62,6 +64,7 @@ class Base extends Component
         ],
         [
             "component" => 'contact.combined',
+            "model" => "App//Models//Contact",
             "buttons" => [
                 [
                     "label" => "Skip",
@@ -85,6 +88,7 @@ class Base extends Component
         ],
         [
             "component" => 'coverage.edit',
+            "model" => "App//Models//Coverage",
             "buttons" => [
                 [
                     "label" => "Skip",
@@ -108,6 +112,7 @@ class Base extends Component
         ],
         [
             "component" => 'coverage.index',
+            "model" => null,
             "buttons" => [
                 [
                     "label" => "Add More",
@@ -131,6 +136,7 @@ class Base extends Component
         ],
         [
             "component" => 'insurance.view',
+            "model" => null,
             "buttons" => [
                 [
                     "label" => "Previous",
