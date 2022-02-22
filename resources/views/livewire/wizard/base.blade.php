@@ -16,4 +16,7 @@
     </div>
 
     <livewire:wizard.buttons :buttons="$screens[$currentIndex]['buttons']"/>
+    <div>
+        @dump($params)
+    </div>
 </div>

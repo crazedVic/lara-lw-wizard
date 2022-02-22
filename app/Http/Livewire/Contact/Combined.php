@@ -76,9 +76,10 @@ class Combined extends Component
     }
 
     //save or continue, depending on indexView
-    public function continue($contact)
+    public function continue($contact = null)
     {
-        $this->params[$this->index][] = $contact;
+        if($contact)
+            $this->params[$this->index][] = $contact;
         if ($this->indexView)
         {
             $this->emitTo('wizard.base', 'next', $this->params[$this->index]);
