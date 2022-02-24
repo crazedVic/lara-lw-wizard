@@ -32,18 +32,18 @@ select:-webkit-autofill {
 button,
 button[type="submit"],
 button[type="button"]{
-    @apply text-white rounded-md shadow text-xs px-2 py-1.5 m-0.5 whitespace-nowrap;
+    @apply text-white rounded-md shadow text-xs px-2 py-1.5 whitespace-nowrap;
     min-width: 140px;
 }
 
 textarea,
 input[type="text"] {
-    @apply mx-2 w-full m-0 border border-gray-500 mb-0.5 px-1 py-0.5 rounded;
+    @apply md:mx-2 w-full m-0 border border-gray-500 mb-0.5 px-1 py-0.5 rounded;
 
 }
 
 .fieldLabel{
-    @apply text-gray-800 text-xxs ml-1 py-0 mt-1.5 mb-1;
+    @apply text-gray-800 text-xxs md:ml-1 py-0 mt-1.5 mb-1;
 }
 
 .errorSummary{
