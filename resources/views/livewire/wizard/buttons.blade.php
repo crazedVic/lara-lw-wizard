@@ -1,4 +1,4 @@
-<div class="flex flex-row justify-between w-96">
+<div class="flex flex-row justify-between w-full">
     <div class="flex justify-start">
         @foreach($buttons as $button)
                 @if($button['align'] == "left")
