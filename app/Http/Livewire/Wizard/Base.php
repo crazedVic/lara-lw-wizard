@@ -65,6 +65,7 @@ class Base extends Component
         [
             "component" => 'contact.combined',
             "model" => "App\\Models\\Contact",
+            "foreignKey" => "policy_id",
             "buttons" => [
                 [
                     "label" => "Skip",
@@ -89,6 +90,7 @@ class Base extends Component
         [
             "component" => 'coverage.edit',
             "model" =>"App\\Models\\Coverage",
+            "foreignKey" => "policy_id",
             "buttons" => [
                 [
                     "label" => "Skip",
@@ -209,43 +211,43 @@ class Base extends Component
 
     public function saveAll(){
         // this would be where we actually save all the in memory data to db.
+        $parent = null;
+        $records_saved = 0;
         foreach($this->screens as $key => $screen ){
             if($screen["model"]){
-                error_log($key);
                 $data = $this->params[$key];
 
                 foreach($data as $entry){
                     if(is_array($entry)){
-                        error_log("list");
-                        error_log($entry["name"]);
                         $model = new $screen["model"]($entry);
+                        $model[$screen['foreignKey']] = $parent->id;
+                        $records_saved++;
                         if(!isset($model->id)){
                             $model->save();
                         }
-
                     }
                     else{
-                        error_log("individual");
-                        $model = new $screen["model"]($data);
-                        if(!isset($model->id)){
-                            $model->save();
+                        if(!$parent) {
+                            $parent = new $screen["model"]($data);
+                            $records_saved++;
+                            if (!isset($parent->id)) {
+                                $parent->save();
+                            }
+                        }
+                        else{
+                            $model = new $screen["model"]($data);
+                            $records_saved++;
+                            if (!isset($model->id)){
+                                $model[$screen['foreignKey']] = $parent->id;
+                                $model->save();
+                            }
                         }
                         break;
                     }
-//                    if(is_array($entry)){
-//                        // list of records
-//                        foreach($entry as $record){
-//                            //save record
-//                            error_log("save index entry");
-//                        }
-//                    }
-//                    else{
-//                        //save record
-//                        error_log("save single entry");
-//                    }
                 }
             }
         }
+        error_log($records_saved);
 //        if($this->currentIndex < sizeof($this->screens)){
 //            $this->currentIndex ++;
 //        }
